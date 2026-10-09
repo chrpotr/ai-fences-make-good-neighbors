@@ -7,7 +7,7 @@ non-empty line that instructs an action. The patterns are listed below and nowhe
 
 Buckets, in order of precedence:
   prompt    the line echoes a constraint the fixed prompt itself contained
-  standing  the line echoes a rule from the Layer A files the subagent had loaded
+  standing  the line echoes a rule from the standing instruction files the session had loaded
   invented  neither
 
 The script's counts are the number. The sort is a heuristic; the plans are the evidence. Read-only on the plans.
