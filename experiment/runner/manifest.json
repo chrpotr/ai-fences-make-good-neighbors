@@ -1,0 +1,32 @@
+{
+  "_about": "Fill every empty string before the first run. The scripts abort on a blank they need. Prompt variants are placeholders: Chris writes the final wording, and it stays verbatim across both tools. {task} is replaced by the task text.",
+  "n": 3,
+  "tools": {
+    "claude": {
+      "model": "",
+      "effort": "",
+      "standing_dir": ""
+    },
+    "codex": {
+      "model": "",
+      "effort": "",
+      "standing_dir": ""
+    }
+  },
+  "tasks": [
+    {
+      "id": "T1",
+      "type": "deterministic",
+      "text": ""
+    },
+    {
+      "id": "T2",
+      "type": "creative",
+      "text": ""
+    }
+  ],
+  "prompts": {
+    "P0": "{task}\n\nWrite the plan.",
+    "P1": "{task}\n\nWrite the plan with the fewest rules, limits, and approval steps possible."
+  }
+}

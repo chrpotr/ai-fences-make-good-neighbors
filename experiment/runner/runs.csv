@@ -1,0 +1,1 @@
+run_id,tool,cli_version,model_reported,model_requested,effort,task_id,task_type,prompt_variant,standing_files,run_n,started_at,duration_ms,input_tokens,cached_tokens,output_tokens,reasoning_tokens,cost_usd_estimate,tool_calls,plan_path,lines_total,fence_lines,fence_prompt,fence_standing,fence_invented,do_lines,dont_lines
