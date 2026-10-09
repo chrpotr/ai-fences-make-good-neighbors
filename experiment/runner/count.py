@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Count fences in a plan. A fixed pattern list flags candidates; Chris judges every line.
+"""Count fences in a plan. A fixed pattern list flags candidates; a person judges every line.
 
     python count.py flag plans/<run_id>.md          -> writes plans/<run_id>.count.md
     python count.py tally plans/<run_id>.count.md   -> writes the seven counts into runs.csv

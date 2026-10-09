@@ -4,7 +4,7 @@
     python run_claude.py --task T1 --prompt P0 --standing absent [--n 3]
 
 Each run is a fresh session. The plan goes to plans/<run_id>.md, the tool's full JSON to plans/<run_id>.raw.json,
-and one row to runs.csv. The script adds nothing to the prompt. Chris runs this; agents do not.
+and one row to runs.csv. The script adds nothing to the prompt. a person runs this; an agent does not.
 """
 import argparse
 import csv

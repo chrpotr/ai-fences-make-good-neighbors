@@ -4,7 +4,7 @@
     python run_codex.py --task T1 --prompt P0 --standing absent [--n 3]
 
 Each run is a fresh session. The plan goes to plans/<run_id>.md, the full event stream to plans/<run_id>.raw.jsonl,
-and one row to runs.csv. The script adds nothing to the prompt. Chris runs this; agents do not.
+and one row to runs.csv. The script adds nothing to the prompt. a person runs this; an agent does not.
 
 Standing files absent: CODEX_HOME is pointed at an empty directory so no global AGENTS.md loads. That also moves the
 saved sign-in, so set CODEX_API_KEY in the environment before running the absent cell.

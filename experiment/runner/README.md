@@ -1,9 +1,9 @@
-# Fences experiment: do AI planners add rules nobody asked for?
+# The runner: do AI planners add rules nobody asked for?
 
 ```
-owner:    Chris. He runs every cell himself. Agents never run this, because the rules an agent would add are the subject.
-issue:    #80 "my frustration with the way AI tools implment fecnes ..."
-design:   approved by Chris in the Writers' Room, 2026-10-08 (two rounds: the protocol, then this runnable form)
+owner:    the author. He runs every cell himself; an AI agent does not run this, because the rules an agent would
+          add are the subject.
+design:   written 2026-10-08 in two rounds: the protocol, then this runnable form.
 sources:  Claude Code flags and JSON fields from code.claude.com (cli-reference, headless, env-vars, model-config,
           agent-sdk/cost-tracking). Codex flags, event stream, and config keys from learn.chatgpt.com
           (developer-commands, non-interactive-mode, config-reference, agent-configuration/agents-md). Read 2026-10-08.
@@ -12,25 +12,27 @@ sources:  Claude Code flags and JSON fields from code.claude.com (cli-reference,
 
 ## What is being tested
 
-Two claims from the interview record on issue 80:
+Two claims the author made before any data existed:
 
-1. More fences appear when the task is creative and non-deterministic (A10).
-2. Fences raise token spend: the AI pays to satisfy rules it invented (A18).
+1. More fences appear when the task is creative and non-deterministic.
+2. Fences raise token spend: the AI pays to satisfy rules it invented.
+
+Phase one, run by hand on 2026-10-08 with the standing files on, is in `../RESULTS.md`. This runner exists to run
+the cells that phase one could not, standing files off, on two tools, with the counting done by a person.
 
 ## What counts as a fence
 
-Chris's definition: a rule or control that seeks to limit where the AI can go, do, or say. In a plan, a fence is any
-line that forbids, bounds, gates, or requires approval. Each fence is sorted the way he sorted the fifteen on
-2026-10-08:
+The author's definition: a rule or control that seeks to limit where the AI can go, do, or say. In a plan, a fence
+is any line that forbids, bounds, gates, or requires approval. Each fence is sorted into one of three buckets:
 
 | Bucket | Meaning |
 |---|---|
-| `prompt` | traced to a phrase in his prompt |
+| `prompt` | traced to a phrase in the prompt |
 | `standing` | traced to a standing file the tool read (CLAUDE.md, AGENTS.md, memory) |
 | `invented` | nothing behind it |
 
-The `invented` bucket is the one the post is about. Chris is the judge of record on every line. `count.py` flags
-candidates by a fixed pattern list; it never decides.
+The `invented` bucket is the one the write-up is about. The author is the judge of record on every line. `count.py`
+flags candidates by a fixed pattern list; it never decides.
 
 ## The files
 
@@ -39,8 +41,8 @@ candidates by a fixed pattern list; it never decides.
 | `manifest.json` | The two tasks, the prompt variants verbatim, the model IDs, the standing-file directories, n per cell. Fill the blanks before the first run |
 | `run_claude.py` | Runs one cell on Claude Code headless: n fresh sessions, saves each plan and the raw JSON, appends a row to `runs.csv` |
 | `run_codex.py` | Same on Codex `exec` |
-| `count.py` | `flag` writes a per-plan sheet with candidate fence lines marked for Chris to judge; `tally` reads the judged sheet and writes the seven count columns into `runs.csv` |
-| `runs.csv` | One row per run. The table the post, and the clearing of needs:evidence, rest on |
+| `count.py` | `flag` writes a per-plan sheet with candidate fence lines marked for a person to judge; `tally` reads the judged sheet and writes the seven count columns into `runs.csv` |
+| `runs.csv` | One row per run. The table the write-up rests on |
 | `plans/` | Created on the first run: `<run_id>.md` (the plan), `<run_id>.raw.json` or `.raw.jsonl` (the tool's full output), `<run_id>.count.md` (the judged sheet) |
 
 ## How each tool is called
@@ -88,7 +90,8 @@ cost_usd_estimate, tool_calls, plan_path, lines_total, fence_lines, fence_prompt
 do_lines, dont_lines
 ```
 
-The first twenty columns come from the tool and the script. The last seven come from Chris through `count.py`.
+The first twenty columns come from the tool and the script. The last seven come from the person judging, through
+`count.py`.
 
 ## Run order, one variable at a time
 
@@ -108,7 +111,7 @@ Three runs per cell is a floor to see variance, not a rule. One run is enough wh
 ```
 python run_claude.py --task T1 --prompt P0 --standing absent
 python run_codex.py  --task T1 --prompt P0 --standing absent
-python count.py flag plans/<run_id>.md        # writes plans/<run_id>.count.md for Chris to judge
+python count.py flag plans/<run_id>.md        # writes plans/<run_id>.count.md for a person to judge
 python count.py tally plans/<run_id>.count.md # writes the seven counts into runs.csv
 ```
 

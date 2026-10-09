@@ -1,5 +1,5 @@
 {
-  "_about": "Fill every empty string before the first run. The scripts abort on a blank they need. Prompt variants are placeholders: Chris writes the final wording, and it stays verbatim across both tools. {task} is replaced by the task text.",
+  "_about": "Fill every empty string before the first run. The scripts abort on a blank they need. Prompt variants are placeholders: the author writes the final wording, and it stays verbatim across both tools. {task} is replaced by the task text.",
   "n": 3,
   "tools": {
     "claude": {
