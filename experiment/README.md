@@ -19,8 +19,9 @@ unrequested rules and compare the cost) has not been run.
 - Three models were used: Claude Fable 5.1, Claude Opus 5.5, and Claude Sonnet 5.5 (Anthropic, as available on
   2026-10-08). Four cells (two tasks by two prompt variants), three runs per cell per model: thirty-six plans.
 - The sessions ran as subagents inside the author's own coding environment. A probe before the runs showed that
-  such a session starts with the author's standing instruction files already loaded, about 64,000 tokens of them,
-  before it reads a word of the prompt. That could not be switched off from inside the environment, so "standing
+  such a session starts with about 64,000 tokens already loaded before it reads a word of the prompt: the author's
+  standing instruction files (about 4,700 tokens of them, by a rough count) and everything else the session carries.
+  The files could not be switched off from inside the environment, so "standing
   files present" holds for every run and the planned "absent" condition was not run. The runner in `runner/` is
   built to run it.
 - The experimenter was an AI of the same family as the models tested, acting on the author's instruction. Every plan
