@@ -9,6 +9,8 @@ Run and counted on 2026-10-08. Findings 1 and 2 were reworded the same evening t
 which the first wording overstated. Phase two (execute a plan with and without its unrequested rules) has not been
 run.
 
+The article reports averages with every run shown; this file reports medians.
+
 ## In plain words
 
 Thirty-six fresh AI sessions were each handed one sentence of task and asked for a plan. Half the tasks were
@@ -103,7 +105,7 @@ rule is a fence is the question the write-up is about.
 - The "standing" bucket is small by pattern (0 to 3 per plan) because the pattern list is short. The marker table
   above is the better measure of standing-file influence.
 
-Everything the script did and did not catch is in `fence-lines.md`, one line per fence with its bucket, so the sort
+For the eighteen published plans, everything the script did and did not catch is in `fence-lines.md`, one line per fence with its bucket, so the sort
 can be redone by anyone.
 
 ## What this does and does not establish
@@ -120,7 +122,7 @@ can be redone by anyone.
 
 The eighteen mechanical plans (cells A and C) are in `plans/`. The eighteen creative plans (cells B and D) are not
 published: they built on the author's own working notes and name him, and he has kept them back. The counts above
-include all thirty-six; `fence-lines.md` carries the flagged lines of all thirty-six.
+include all thirty-six; `fence-lines.md` carries the flagged lines of the eighteen published plans.
 
 ## Limits
 

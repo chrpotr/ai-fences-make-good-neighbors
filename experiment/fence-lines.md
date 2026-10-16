@@ -1,4 +1,6 @@
-# Every fence line, by run, with the script's bucket
+# Every fence line in the eighteen published plans, by run, with the script's bucket
+
+The eighteen series plans (cells B and D) are held back, and so are their flagged lines. Their counts are in RESULTS.md.
 
 ## A-fable-1 (13 fence lines: 13 invented, 0 standing, 0 prompt)
 
@@ -15,7 +17,6 @@
 - [invented] | Path too long after relocation | Caught in dry run, before any copy |
 - [invented] | A file with no readable date | Falls to last-write time; the dry run names it |
 - [invented] reading its inputs from the previous phase's CSV and never from memory. No third-party tools.
-
 ## A-fable-2 (7 fence lines: 7 invented, 0 standing, 0 prompt)
 
 - [invented] Copy, never move, until the proof passes. Build a manifest of the source (path, size, SHA-256) before anything is touched; copy every file into `<root>\<YYYY>\<YYYY-MM>\<type>\`; build a second manifest of the destination; prove the two manifests match as a set of hashes, with a count of 200 on both sides and no extra files on either; only then delete the source files, and keep both manifests and a move log as the permanent record. If the proof fails at any step, nothing has been deleted and the source is exactly as it was.
@@ -25,7 +26,6 @@
 - [invented] Only after `PROOF.md` shows five PASS lines, and only after you say yes on the day, the Q2 answer is carried out. If Q2 was option 1, the source files are deleted one by one, each only after a final hash re-check against the manifest (guards against the source being edited between step 1 and step 6). If a hash has changed, that file is not deleted and is reported.
 - [invented] - Source count is not 200: report the real number; the rest of the plan is unchanged except the target count.
 - [invented] One PowerShell script, kept in the `_records` folder beside the manifests, with a `-WhatIf` switch for step 2 and a `-Delete` switch that is ignored unless `PROOF.md` exists with five PASS lines. Standard cmdlets only (`Get-ChildItem`, `Get-FileHash`, `Copy-Item`, `Export-Csv`); nothing to install.
-
 ## A-fable-3 (11 fence lines: 11 invented, 0 standing, 0 prompt)
 
 - [invented] then delete, never as a bare move, so at every point there is a complete copy
@@ -39,7 +39,6 @@
 - [invented] | Dates are wrong | Date rule shown per row in the dry run, reviewed before copy |
 - [invented] | Wrong bucket list | Dry-run summary, reviewed before copy |
 - [invented] Steps 0 to 2 are read-only and need no approval. Before anything is written:
-
 ## A-opus-1 (11 fence lines: 8 invented, 3 standing, 0 prompt)
 
 - [invented] Copy, do not move. Each file gets a SHA-256 hash before anything changes, is copied to `<YYYY>\<YYYY-MM>\<type>\`, and is hashed again at the new location. The originals then go to a holding folder; they are not deleted. The job counts as proven only when four checks pass: the counts match, every source hash appears exactly once at the destination, no destination file is missing from the manifest, and total bytes match. You delete the holding folder yourself, after you have looked at the report. No agent deletes anything.
@@ -53,7 +52,6 @@
 - [invented] | 3 | Nothing extra | no file in the destination folders is absent from the map |
 - [standing] - If this folder belongs to a domain with a plan record or register, I add one entry there that says what was moved and why, and links to the run record. I do not create a new register.
 - [invented] Before Step 6: delete nothing, and if you want, remove the copies; the source never changed. After Step 6: move the files from the holding folder back to the source; `manifest-before.csv` proves the result matches the original.
-
 ## A-opus-2 (9 fence lines: 7 invented, 2 standing, 0 prompt)
 
 - [standing] 1. **Wall check.** If the source or destination path sits inside a FINANCIALS, FAMILY or HEALTH tree, in any casing, stop and do not list it. While listing the source, if any filename matches one of those words, stop without opening or hashing that file. Report only how many files matched, never their names, and wait for your ruling.
@@ -65,7 +63,6 @@
 - [standing] 3. **Proof report** (`proof-<YYYY-MM-DD>.md`): the numbers above, the dry-run counts, every exception with its reason, and the paths of both manifests, so anyone can re-run the comparison.
 - [invented] 2. No agent empties the Recycle Bin or permanently deletes anything. That step stays yours.
 - [invented] The before-manifest maps every original path to its new path. Until the originals are deleted, rollback is a simple reverse: remove the copies, or move the originals back from holding using the same manifest, then re-run the reconciliation in the other direction.
-
 ## A-opus-3 (18 fence lines: 16 invented, 1 standing, 1 prompt)
 
 - [prompt] | A1 | The source is one folder holding about 200 files | Count the files; stop if the count is not what you expect |
@@ -86,7 +83,6 @@
 - [invented] PowerShell 7 on this machine: `Get-ChildItem -File`, `Get-FileHash -Algorithm SHA256`, `Copy-Item` (never with `-Force`), and `Import-Csv`/`Export-Csv` for the comparison. The script lives in the session scratchpad, not in the source or target. Nothing is downloaded or installed.
 - [invented] - a) Stop and show them to you before going further **(recommended)**
 - [invented] - c) Leave the subfolders where they are; organize only the top-level files
-
 ## A-sonnet-1 (13 fence lines: 11 invented, 0 standing, 2 prompt)
 
 - [prompt] Do it as copy, verify, then remove, never as a bare move. Record every file (path, size, SHA-256, modified time) before touching anything. Copy each file to its new home. Re-hash the copy. Delete the original only after the copy's hash matches and you have approved the removal. At the end, reconcile the count: 200 in = 200 verified at the destination + any files listed as skipped or failed, and the numbers must add up exactly. A move on the same drive is faster, but it leaves no original to compare against if something goes wrong. Copy-then-verify costs a few minutes for 200 files and buys a real proof.
@@ -102,7 +98,6 @@
 - [invented] | A file is locked or in use | Logged as failed, left at the source, never counted as moved. |
 - [invented] | Cloud-synced folder (files stored online only) | Hashing would trigger downloads. Phase 0 checks for this, and I would ask before continuing. |
 - [prompt] No renaming of files except collision handling, no content changes, no deduplication, no deletion of anything outside the 200 files, no commit, and no change to any other folder.
-
 ## A-sonnet-2 (18 fence lines: 16 invented, 1 standing, 1 prompt)
 
 - [invented] 1. A new sibling folder beside the source, never inside it (recommended)
@@ -123,7 +118,6 @@
 - [invented] | Partial or interrupted copy | Hash check catches it; copy log shows where it stopped; re-run only the failed rows |
 - [invented] | Files locked or unreadable | Logged as failures, reported together, never skipped silently |
 - [invented] | Blocked folder involved | Boundary check; stop and report |
-
 ## A-sonnet-3 (14 fence lines: 10 invented, 2 standing, 2 prompt)
 
 - [prompt] Copy, do not move. Build the new layout as a copy of the 200 files, prove the copy is complete by comparing a fingerprint of every file before and after, and leave the original folder untouched until you say to retire it. Nothing can be lost because nothing is deleted. The proof is a set of hashes taken before any change and compared after, not a file count alone.
@@ -140,104 +134,6 @@
 - [invented] Because the source is never modified, rollback is: delete the new destination tree (you do this) and nothing else is affected. No state needs reversing.
 - [invented] - A file is locked or unreadable: logged as an error, reported, never skipped silently.
 - [standing] It does not rename files beyond collision suffixes, open or summarize contents, merge duplicates, touch any other folder, or create any tracker or register. This is a one-off task, so no register entry is proposed unless you want one.
-
-## B-fable-1 (10 fence lines: 7 invented, 2 standing, 1 prompt)
-
-- [prompt] A six-week run of one anchor post a week, all on one subject, so that a hiring reader who lands on any single post and then opens the profile sees a person who owns a lane, not a person posting whatever came to mind that week. The lane is technical product marketing: the work of turning what engineers built into what buyers can evaluate. The series exists to make that job legible to the people who hire for it, in Chris's own words, pulled out of him by interview and never written for him.
-- [invented] These are **pitches as notes, never lines**. Each one names the question the post answers, what the interview must draw out, and the check. Wording, stories, examples, and opinions are his and come out of the interview.
-- [invented] | 4 | What does "technical" buy a company at launch? | A launch where depth of understanding changed the outcome (positioning, sales enablement, analyst conversation); outcome in his own words | Text post; one image only if he has a real artifact and it passes the image rulings | Is the claim about the work, not about him? |
-- [invented] | Mon | Interview on that week's issue. Questions come from the gaps in the issue's capture, never asking him to retell what he already gave. | Interviewer seat | `/interview <issue>` |
-- [invented] Fixed rules carried in, not restated: no agent drafts or suggests a line of post or comment; one line at a time on approvals; the room is LinkedIn, named before any drafting step; design is never an agent job.
-- [invented] - Per post: comments from people who hire or sponsor PMMs (count, by hand, from the comment list; never a list of names stored).
-- [invented] | Text-first, image only with a real artifact | His own image rulings (2026-10-07) and the rule that an image gets a check, never a target. | Whether image posts outperform text posts for this audience. |
-- [standing] Each is multiple-choice with a recommended default. Answers settle the plan; they do not start a new cycle.
-- [invented] 3. No series name; the posts stand alone and only the subject ties them
-- [standing] 1. Read-only drift check now, then one approval to open the six issues (default)
-
-## B-fable-2 (9 fence lines: 9 invented, 0 standing, 0 prompt)
-
-- [invented] The topic is my choice because the brief asked for one. That is itself a conflict with the standing rule that agents do not choose content. It is surfaced as the one question at the end, before the approval line.
-- [invented] Working label: **Six questions technical buyers ask that the copy never answers.**
-- [invented] - It is his material. Each week needs one incident he lived through, not research. The Writers' Room is built for exactly that: interview first, his words, no agent lines.
-- [invented] Each entry is a pitch note, never a line. The "interview seed" is the gap the interviewer starts from after reading his capture; it is not a question to put to him cold, and it is not an opening sentence.
-- [invented] | 2 | 2026-10-20 | How does it fit with what we already run? | One time integration or architecture, not features, decided the deal or the launch message | Single story, text; one diagram only if he already has one from the work |
-- [invented] Week 6 depends on weeks 1 to 5 drawing comments. If they do not, week 6 becomes a sixth story (fallback seed: one time the buyer's real question only came out after the meeting), and the reader-sourced closer is dropped without a new approval cycle.
-- [invented] Voice: VOICE-LinkedIn.md v0.1 is the room. The resume style stays out. No agent writes or suggests a line at any step.
-- [invented] Images: an image gets a check, never a target. Week 2 is the only week where a picture is likely to earn its place, and only if it already exists from his work. No generated or stock images for this series.
-- [invented] The brief asked me to choose the topic. The ops-scope rule (2026-09-28, 09-30, 10-01) says agents never choose or ask about content. Both cannot hold.
-
-## B-fable-3 (13 fence lines: 12 invented, 0 standing, 1 prompt)
-
-- [invented] Status: PROPOSED, not approved. Nothing below has been executed. No file other than this one was read or written.
-- [prompt] Run six weekly posts, 2026-10-12 to 2026-11-20, on one topic: what changes in technical product marketing when the product is an AI agent that takes actions, and what does not change at all. One post a week, written by Chris, moved through the existing pipeline (interview → outline → he writes → polish → comment review). Each post gets one check, never a target. The series is built so a hiring reader for a Principal Technical Product Marketing role can see six weeks of applied judgment in a row, which a single post cannot show.
-- [invented] - It is his to write. The angles below are notes, never lines. No agent authors a sentence of a post.
-- [invented] | 1 | 2026-10-12 to 10-16 | The buyer's first question about an agent product is not "what does it do" but "what will it do without asking me". What that does to the first screen of positioning. | Text post, 150–220 words, one idea | Did at least one comment come from someone with a PMM or PM title? Yes/no |
-- [invented] | 6 | 2026-11-16 to 11-20 | The thing he would do differently now, in one paragraph, and the one thing that did not change at all. Closes the arc; links back to week 1 in his own words. | Text post, shortest of the six | Did a hiring-side reader (recruiter, hiring manager) view or connect in the following seven days? Yes/no — read from profile views, never asked of anyone |
-- [invented] - Forms are defaults. He picks on the day. An image gets a check, never a target, and design is never an agent job.
-- [invented] 2. Monday or Tuesday: `/interview <issue>` — the interviewer asks from the gaps in his capture, never asks him to retell what he already gave.
-- [invented] 6. Posting: his hands, his account, his timing. Agents do not post.
-- [invented] - After post 3 (week of 2026-10-30): a short control report. Three checks recorded, three to go. Only question allowed: continue, swap one angle, or stop. Design freeze holds — no change to roles, prompts, or process until four posts are out.
-- [invented] | Technical PMM framing | 2026-10-06 term test: employers write "Technical Product Marketing" | Whether the series moves a hiring decision. No one can measure that from LinkedIn |
-- [invented] - No agent drafts, suggests, or rewrites a line of any post or comment.
-- [invented] - Research before recommending: before week 1 is interviewed, one session opens LinkedIn's own 2026 creator pages and confirms the post-length and format defaults above or corrects them with a source. That step is read-only and needs no approval.
-- [invented] 3. Start only after the first review's open line is settled
-
-## B-opus-1 (8 fence lines: 7 invented, 1 standing, 0 prompt)
-
-- [invented] - **The series is six slots, not six posts.** Each slot is an interview with you. The post is yours and comes out of that interview. No agent writes or suggests a line.
-- [invented] - **One conflict must be settled before anything moves (question 1 below).** You asked me to choose the topic. The operations-scope rule on record says agents never choose content. My default is to treat the topic as a working label that you confirm or replace, and to leave the stories in each slot to you.
-- [standing] If 0.1 or 0.2 contradicts this plan, I stop and bring you one multiple-choice question before week 1.
-- [invented] | Wednesday | Polish: flags on what to move or cut; never rewords | R02 | `/polish <PR>` |
-- [invented] - Voice: VOICE\profiles\VOICE-LinkedIn.md. Name the room (LinkedIn posts) before each interview.
-- [invented] - Writers' Room: pitches are notes, never lines.
-- [invented] - You replace the topic in question 1. The phases stay; only the label changes.
-- [invented] You asked me to choose the topic. The operations-scope record says agents never choose content. How should the topic be treated?
-
-## B-opus-2 (6 fence lines: 5 invented, 0 standing, 1 prompt)
-
-- [prompt] **Conclusion first:** one post a week, on Tuesday, for six weeks. Every post starts with a `/interview`. No agent writes a line of any post. Three things need your answer before week 1 starts, and they are at the bottom.
-- [invented] The request behind this plan said to pick the topic myself. Your standing ruling for this domain says operations sessions never choose content. Those two conflict, and I have not settled it on my own. The topic below is a **working topic**, there so the plan has something concrete to schedule. It has no force until you answer Question 1.
-- [invented] | Week | Post date | Territory (yours to replace) | Material that may already exist (check, don't assume) |
-- [invented] | 3 | 2026-10-27 | A time it broke, and what you changed afterward | The 2026-09-05 overwrite incident, *only if you want it public* |
-- [invented] Rules that stay in force (pointers, not restated): the writers' room record, the LinkedIn voice room (`VOICE\profiles\VOICE-LinkedIn.md`), and the comment-review card. Name the room as LinkedIn before each outline.
-- [invented] - No agent drafts, suggests, or rewrites post text or comments.
-
-## B-opus-3 (7 fence lines: 6 invented, 0 standing, 1 prompt)
-
-- [invented] - One conflict blocks the start: the request said to pick the topic, and the standing rule says agents never choose content. Decision D1 below settles that. The rest of the plan works for any topic.
-- [prompt] The request for this plan said "a topic of your choosing." The standing rule for this lane (operations only, recorded 2026-09-28, 09-30, 10-01) says agents never choose or ask about content. Those two conflict, so the choice goes to Chris.
-- [invented] 1. **The topic and the six posts come from Chris's own pipeline issues; this plan supplies only the rhythm and the steps. (Recommended: keeps the standing rule intact.)**
-- [invented] | Interview | Answers questions drawn from the gaps in his own issue; never asked to retell what the issue already holds | 20 to 30 min |
-- [invented] - `/polish` on his draft pull request: flags only, never rewords.
-- [invented] - Comment review only when he asks, under the existing rule (flags, never wording).
-- [invented] - The design freeze holds until four posts are out (after Week 4); nothing about the pipeline changes before then unless a step fails outright.
-
-## B-sonnet-1 (5 fence lines: 5 invented, 0 standing, 0 prompt)
-
-- [invented] I read no files, so I have not checked this plan against the strategy of record, the voice files, the content pipeline, or any existing posts. Before approval, someone with access must compare it to those. If the strategy of record names a different audience or a different topic, that wins and this plan changes.
-- [invented] Each post is one piece of work from Chris's own experience, told as: the situation, what he did, what happened, what he would tell someone else. The six slots are below. The slot is the angle only. The story, the wording, and the details come from Chris, through the interview step. No agent supplies lines, numbers, or outcomes.
-- [invented] - Chris owns every idea, every sentence, and every decision about what is true. He writes the posts. This follows the standing rule that agents do not draft or suggest his content.
-- [invented] Four posts need to be in the interview or outline stage at all times after week 1 so one late week does not stop the series.
-- [invented] - After post 3, profile views have not moved. Do not change the topic yet. Review at week 6 as planned, since three data points are not a signal.
-
-## B-sonnet-2 (6 fence lines: 5 invented, 1 standing, 0 prompt)
-
-- [invented] Chris writes every post. This plan decides topic, order, cadence, and checks. It never supplies post lines, angles-as-sentences, or wording.
-- [invented] Hiring managers and product marketing peers who would look at his profile after reading one post. Not a general audience. Every week's post should be useful to that person if it is the only one they ever see.
-- [invented] Use the existing pipeline, one issue per post, in this order: interview, outline, he writes the post himself, polish, publish. Stage moves go through the stage step. No agent drafts, rewords, or suggests post wording. Polish flags what to move or cut and never rewords.
-- [standing] - No new register, tracker, or template. Each post is an issue in the existing pipeline. If he wants a single view of the six, propose one register and wait for his answer.
-- [invented] - He wants a different topic: the cadence, pipeline, and check points carry over unchanged. Only the question table is rewritten.
-- [invented] - A job offer or interview crunch: pause the series; do not compress it.
-
-## B-sonnet-3 (6 fence lines: 6 invented, 0 standing, 0 prompt)
-
-- [invented] - Every post is written by you, in your voice, from your own experience. A session can organize your words and flag problems. It never rewords or authors.
-- [invented] 1. Monday: interview. You are asked questions drawn from gaps in what you already gave. You are never asked to retell something already captured.
-- [invented] | Stories run out by week 4 | Swap order, or drop to five posts; do not invent |
-- [invented] - I did not read your profile, the pipeline board, the voice files, or the strategy of record. This plan was built without them. Before any step runs, it must be checked against them for conflicts, and local law wins if they disagree.
-- [invented] - You prefer a different topic: the structure still holds, only the themes change.
-- [invented] - Your first two posts get no signal from hiring readers: stop and decide, before week 3, whether to continue.
-
 ## C-fable-1 (5 fence lines: 5 invented, 0 standing, 0 prompt)
 
 - [invented] Nothing is renamed except to break a name collision, and nothing is deleted from the
@@ -245,7 +141,6 @@
 - [invented] 1. **Inventory (read-only).** Walk the source. Record for each file: relative path,
 - [invented] `<dest>\_manifest\before.csv`. Assert the count is 200. If it is not 200, stop and
 - [invented] 4. **Delete source files** only if step 3 passed with zero mismatches. Then assert the
-
 ## C-fable-2 (11 fence lines: 9 invented, 1 standing, 1 prompt)
 
 - [standing] Conclusion first: one approval gate, one rule the mover follows, one proof the mover must produce. Everything else is mechanism.
@@ -259,7 +154,6 @@
 - [invented] - **No per-type or per-batch approvals.** The dry-run table shows every destination before a byte moves; approving it once covers all 200.
 - [invented] - **No rollback procedure.** There is nothing to roll back: at every moment each file exists verified at the destination, or untouched at the source, never neither.
 - [prompt] - If the 200 files include very large ones (many GB), hash with a streaming read and expect the run to take minutes rather than seconds; the steps do not change.
-
 ## C-fable-3 (5 fence lines: 5 invented, 0 standing, 0 prompt)
 
 - [invented] 3. **Collision** = two files mapped to the same destination path get `-2`, `-3` appended before the extension. Original filenames are never otherwise changed.
@@ -267,7 +161,6 @@
 - [invented] **2. Mapping (read-only).**
 - [invented] **3. The one approval gate.**
 - [invented] - no file exists in the destination that is not in `mapping.csv`.
-
 ## C-opus-1 (5 fence lines: 5 invented, 0 standing, 0 prompt)
 
 - [invented] 3. **Layout** is `Target\YYYY-MM\type\original-name`. No file is renamed.
@@ -275,7 +168,6 @@
 - [invented] "Files found: $($before.Count)"        # expect 200; if not, stop and report the number
 - [invented] `verify.txt` says **PASS** only when all three hold:
 - [invented] - No files are left in the source.
-
 ## C-opus-2 (9 fence lines: 8 invented, 0 standing, 1 prompt)
 
 - [prompt] **Conclusion.** Fingerprint every file, move them, fingerprint them again, and compare the two lists. If all 200 fingerprints are present after the move, nothing was lost. You approve once, before anything moves. After that the plan runs to the end unless the check fails.
@@ -287,14 +179,12 @@
 - [invented] | Never overwrite a file | Overwriting is the only way a move can destroy a file. |
 - [invented] | Stop if any check in step 4 fails | The fingerprints say which file is missing. `moves.csv` shows where it went, and every move can be reversed from it. |
 - [invented] - If the files are spread across more than one drive, the move becomes a copy and then a delete. The delete happens only after step 4 passes.
-
 ## C-opus-3 (4 fence lines: 3 invented, 0 standing, 1 prompt)
 
 - [prompt] Take a fingerprint of every file before anything moves (its path, size, and SHA-256 hash). Move each file to `<target>\YYYY-MM\<type>\<filename>`. Take the fingerprints again and compare. If every hash from before is found exactly once after, with the same size, and the source folder holds no files, nothing was lost. The two fingerprint lists stay in the target folder as the receipt. One approval (this plan) is the only gate.
 - [invented] 1. **Date** is the file's last-modified date, as `YYYY-MM`. Why: every file has one, so no file is left without a folder.
 - [invented] 3. **Never overwrite.** If a file with the same name is already in the destination folder, the moved file gets ` (2)`, ` (3)`, and so on before its extension. Why: an overwrite is the one way this move could lose a file.
 - [invented] If any file cannot be read or moved (locked, permission denied, path too long), leave it in the source, finish the rest, and list it in the report with the error. A failed check in step 4 means stop and report before anything else is done; nothing is deleted at any point, so every file is still on disk in either the source or the target.
-
 ## C-sonnet-1 (5 fence lines: 5 invented, 0 standing, 0 prompt)
 
 - [invented] - Filenames do not change. If two files would land on the same path, the later one gets `_2`, `_3` and so on, and the collision is written to the manifest.
@@ -302,7 +192,6 @@
 - [invented] 2. **Copy, never move.** Copy each file to its destination path and preserve the modified time. Originals are untouched. Log any copy error and keep going.
 - [invented] 5. **Remove originals.** Only after step 4 shows zero exceptions, delete the originals from `SRC`, driven by the manifest list and not by a wildcard. Then confirm `SRC` holds none of the 200 manifest files.
 - [invented] Until step 5, rollback is deleting `DEST`; nothing in `SRC` has changed. After step 5, the verified copies in `DEST` are the only copies, so keep a backup of `SRC` until you have looked at the result. If you want zero risk, skip step 5 and delete the originals yourself later.
-
 ## C-sonnet-2 (7 fence lines: 6 invented, 0 standing, 1 prompt)
 
 - [prompt] Copy all 200 files into the new layout, compare a before-and-after list of fingerprints, and delete the originals only if the lists match. One approval starts it. There is no other gate. Nothing is touched until you approve.
@@ -312,7 +201,6 @@
 - [invented] - No file is in the destination outside a `YYYY-MM\<type>` folder.
 - [invented] 5. **Remove originals.** Only after step 4 passes, delete the 200 source files. If step 4 fails, delete nothing and report the mismatched rows.
 - [invented] - Copying first means the move can fail at any point and you still have every original. That is the whole safety net, so there is no separate backup step and no extra approval before deleting.
-
 ## C-sonnet-3 (7 fence lines: 6 invented, 0 standing, 1 prompt)
 
 - [prompt] Record every file's name, size, and SHA-256 fingerprint before the move, move the files, record the same fingerprints after, and compare. If the two lists match with 200 entries each, nothing was lost, changed, or duplicated. One approval gate (this plan). Everything else runs straight through.
@@ -322,51 +210,3 @@
 - [invented] 2. Dry run (read-only). From `before.csv`, write `plan-moves.csv` with each file's source path and target path. Check that there are 200 rows and no two rows share a target. You can look at it; you do not need to.
 - [invented] - Every SHA-256 in `before.csv` appears in `after.csv` the same number of times (so no file was lost, changed, or duplicated).
 - [invented] Any check that fails halts the run at that step. If the failure is after step 3, I reverse the moves from `plan-moves.csv`, re-run the fingerprint, and report. I do not retry or improvise.
-
-## D-fable-1 (2 fence lines: 2 invented, 0 standing, 0 prompt)
-
-- [invented] - Each post: 150 to 300 words, one story, one takeaway, no hashtag pile. One image only if it is a real artefact from the story (a whiteboard, a diff, a screenshot with nothing confidential). No image is fine.
-- [invented] 3. One post a week. Not two to catch up, not zero to wait for a better story.
-
-## D-fable-2 (3 fence lines: 3 invented, 0 standing, 0 prompt)
-
-- [invented] - Each post is written by Chris in his own words. Agents organize and flag; they do not author lines. This is the one standing rule the series inherits from the existing voice and Writers' Room law, and it needs no restating here beyond the pointer.
-- [invented] 3. It ends with the translated line a buyer could actually use, so the reader leaves with the artifact and not only the lesson.
-- [invented] - One number: replies and comments that ask a follow-up question, counted per post. That is the signal that a reader took the translation seriously. Impressions and reactions are recorded but do not drive decisions.
-
-## D-fable-3 (1 fence lines: 1 invented, 0 standing, 0 prompt)
-
-- [invented] | 4 | The sales deck that sales never used | Sell to the seller first |
-
-## D-opus-1 (0 fence lines: 0 invented, 0 standing, 0 prompt)
-
-
-## D-opus-2 (3 fence lines: 3 invented, 0 standing, 0 prompt)
-
-- [invented] - **Format:** text post by default. Use an image or document carousel only when the idea needs one. Week 4 (proof) is the most likely candidate.
-- [invented] 1. **You write it.** Agents can organize your notes or point out what's unclear. They don't write lines for you.
-- [invented] 3. **Ship on the week.** A post that's late but finished beats one that's perfect but missing. If you miss a week, shift the series by a week. Don't cram two posts together.
-
-## D-opus-3 (3 fence lines: 3 invented, 0 standing, 0 prompt)
-
-- [invented] 3. **Before posting: `/polish` if you want it.** It flags what to move or cut. It never rewrites.
-- [invented] 1. **Your words only.** No agent writes, rewrites, or suggests a line. Reason: the series is evidence of you; borrowed wording undercuts it. (Standing rule; pointer, not a new one.)
-- [invented] - **After week 3 (2026-10-30):** look at the three Friday notes. Make at most one change for weeks 4 to 6 (topic angle, day, or length), or none.
-
-## D-sonnet-1 (0 fence lines: 0 invented, 0 standing, 0 prompt)
-
-
-## D-sonnet-2 (4 fence lines: 4 invented, 0 standing, 0 prompt)
-
-- [invented] - It repeats cleanly: same question each week, a different case each time, so readers learn what to expect and you never have to invent a format.
-- [invented] 2. I organize it into a post structure: opening, the case, the lesson. I flag what to move or cut. I do not reword and I do not write lines for you.
-- [invented] Cases come from you, not me. I do not choose or propose the angle for any post.
-- [invented] Approval of this plan, once. Weekly steps above do not need separate approvals. If the topic, cadence, or length changes materially, that is a new plan.
-
-## D-sonnet-3 (4 fence lines: 3 invented, 0 standing, 1 prompt)
-
-- [prompt] Run one post a week for six weeks on one topic: what a technical product marketer does, shown through your own work. The topic fits the roles you are applying for, so each post doubles as evidence for a hiring reader. You write every post. I organize, I do not author.
-- [invented] 1. **Interview (about 20 minutes).** I ask you questions drawn from the week's row above. You answer in your own words. I do not ask you to retell anything you have already given me.
-- [invented] 2. **You write the post.** Your sentences, your details. I do not rewrite.
-- [invented] - If you have no story for a week's row, we swap in another topic for that week. We do not invent one.
-
