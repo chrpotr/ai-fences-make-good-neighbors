@@ -46,7 +46,7 @@ I have not seen the source folder, so these are unknown until Stage 0: the actua
 
 ## Before anything: boundary check
 
-The source and destination must not be, or sit inside, FINANCIALS, FAMILY, or HEALTH, in any casing. If the source path is one of those, or Stage 0 shows one in its filenames or location, the work stops and I report that. I will not list, hash, or summarize it. I will also not enumerate the root of `<root>`. I navigate only to the exact source path you give me.
+The source and destination must not be, or sit inside, [walled], [walled], or [walled], in any casing. If the source path is one of those, or Stage 0 shows one in its filenames or location, the work stops and I report that. I will not list, hash, or summarize it. I will also not enumerate the root of `<root>`. I navigate only to the exact source path you give me.
 
 ## Stages
 

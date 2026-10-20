@@ -61,7 +61,7 @@ The date is the file's last-modified time, in local time, unless you choose othe
 
 ## Before anything runs: two checks
 
-1. **Walls.** Confirm the source folder is not under FINANCIALS, FAMILY, or HEALTH, and that nothing in it is. If it is, stop. Those folders are blocked, including their file names, and this plan does not cover them. The source must be a known path you name, not a root I would have to enumerate.
+1. **Walls.** Confirm the source folder is not under [walled], [walled], or [walled], and that nothing in it is. If it is, stop. Those folders are blocked, including their file names, and this plan does not cover them. The source must be a known path you name, not a root I would have to enumerate.
 2. **Drift.** Before each phase below I compare the current state with the saved manifest file, not with my memory of this conversation. If the file count or any hash differs from the manifest, I stop and report instead of continuing.
 
 ## Phases

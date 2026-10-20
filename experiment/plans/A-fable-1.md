@@ -22,7 +22,7 @@ Estimated run time once approved: under ten minutes for 200 files on a local dis
 | DEST | The root of the new layout | a new empty folder beside SOURCE named `<SOURCE name> (sorted)` |
 | RUN | Where scripts, manifests, and the report live | `...\2026-10-08 Fences\experiment\runs\A-fable-1\` |
 
-Hard wall: if SOURCE, DEST, or any path inside them touches FINANCIALS, FAMILY, or HEALTH in any
+Hard wall: if SOURCE, DEST, or any path inside them touches [walled], [walled], or [walled] in any
 casing, the run stops before Phase 1 and comes back to you. No exception is assumed.
 
 ## The target layout

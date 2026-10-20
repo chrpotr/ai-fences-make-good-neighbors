@@ -14,7 +14,7 @@ Five things are open (section 9). Each has a recommended default. Nothing runs u
 |---|---|---|
 | A1 | The source is one folder holding about 200 files | Count the files; stop if the count is not what you expect |
 | A2 | The source is flat (no subfolders), or subfolders are meant to be flattened | List the subfolders; if any exist, ask you (Q4) |
-| A3 | No file or folder in scope is behind a hard wall (FINANCIALS, FAMILY, HEALTH, any casing) | Check every path in the manifest against the wall names; any hit stops the run, and the hit is reported by count only, not by name |
+| A3 | No file or folder in scope is behind a hard wall ([walled], [walled], [walled], any casing) | Check every path in the manifest against the wall names; any hit stops the run, and the hit is reported by count only, not by name |
 | A4 | The target folder does not exist yet, or is empty | Check before any write; if it holds files, stop and ask |
 | A5 | The drive has room for a full second copy | Compare free space with total source bytes x 1.1 |
 | A6 | No other session or sync process is writing to the source or target | Check those two paths only; no broad session or drive listing |

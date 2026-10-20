@@ -34,7 +34,7 @@ Three choices, each with a recommended default:
 
 ### Phase 0. Read-only discovery (needs no approval; changes nothing)
 
-1. **Wall check.** If the source or destination path sits inside a FINANCIALS, FAMILY or HEALTH tree, in any casing, stop and do not list it. While listing the source, if any filename matches one of those words, stop without opening or hashing that file. Report only how many files matched, never their names, and wait for your ruling.
+1. **Wall check.** If the source or destination path sits inside a [walled], [walled] or [walled] tree, in any casing, stop and do not list it. While listing the source, if any filename matches one of those words, stop without opening or hashing that file. Report only how many files matched, never their names, and wait for your ruling.
 2. **Inventory.** Count the files. Note any subfolders, hidden or system files (`desktop.ini`, `Thumbs.db`), zero-byte files, files with no extension, and full paths longer than 260 characters. If the count is not 200, report the real number and use it from here on.
 3. **a cloud sync client placeholders.** Confirm each file is fully on disk and not an online-only placeholder. Hashing a placeholder forces a download, and a failed download looks like a lost file.
 4. **Space.** Confirm the destination drive has at least 2 times the source's total size free. During the run, the copies and the originals exist side by side.

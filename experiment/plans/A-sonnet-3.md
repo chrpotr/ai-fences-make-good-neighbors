@@ -8,7 +8,7 @@ Copy, do not move. Build the new layout as a copy of the 200 files, prove the co
 
 ## What I am assuming (and what would change it)
 
-- Source: one folder you will name, containing exactly 200 files, with no walled folders (FINANCIALS, FAMILY, HEALTH) inside or above it. If the folder is walled, I stop and tell you.
+- Source: one folder you will name, containing exactly 200 files, with no walled folders ([walled], [walled], [walled]) inside or above it. If the folder is walled, I stop and tell you.
 - Same drive for source and destination. If not, copy-then-verify still works unchanged.
 - "Dated" means the file's last-modified date, because creation dates reset when files are copied between drives.
 - "Typed" means a category derived from the file extension.

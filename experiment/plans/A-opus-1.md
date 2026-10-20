@@ -16,7 +16,7 @@ One question, with a recommended answer (A). Changing any of it changes only the
 - C. Date from the photo's taken date (EXIF) where it exists, otherwise as in A; type by extension.
 - D. Something else. Name it and I revise the plan.
 
-I also need two paths, which are facts and not choices: the **source folder** and the **destination root**. If either is inside a FINANCIALS, FAMILY, or HEALTH tree, the plan stops there and I do not open it.
+I also need two paths, which are facts and not choices: the **source folder** and the **destination root**. If either is inside a [walled], [walled], or [walled] tree, the plan stops there and I do not open it.
 
 ## Step 0. Parameters (filled in from your answer)
 
